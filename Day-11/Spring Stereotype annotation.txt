@@ -1,0 +1,15 @@
+Spring Stereotype annotation :-
+Spring Annotations are a form of metadata that provides data about a program. Annotations are used to provide supplemental information about a program. It does not have a direct effect on the operation of the code they annotate. It does not change the action of the compiled program. 
+Spring Framework provides us with some special annotations. These annotations are used to create Spring beans automatically in the application context. @Component annotation is the main Stereotype Annotation. There are some Stereotype meta-annotations which is derived from @Component those are :
+
+1. @Service :- We specify a class with @Service to indicate that they’re holding the business logic.
+2. @Repository :- We specify a class with @Repository to indicate that they’re dealing with CRUD operations, usually, it’s used with DAO (Data Access Object)                               or Repository implementations that deal with database tables.
+3. @Controller :- We specify a class with @Controller to indicate that they’re front controllers and responsible to handle user requests and return the                              appropriate response. It is mostly used with REST Web Services
+
+@Component is a class-level annotation. It is used to denote a class as a Component. We can use @Component across the application to mark the beans as Spring’s managed components. A component is responsible for some operations.
+
+Uses:-
+1. Spring Stereotype of annotation that indicates the "role of a class" in a project.
+2. These annotations are used to create Spring beans automatically in the application context.
+
+Note: If we are not able to identify a class, from which layer it belongs then we can apply @Component annotation on the top of that class.

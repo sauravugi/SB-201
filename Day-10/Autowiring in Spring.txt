@@ -1,0 +1,32 @@
+Autowiring in Spring :-
+Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor injection.
+Autowiring can't be used to inject primitive and string values. It works with reference only.
+
+Types of Autowiring :-
+1. No(default) :- <bean> tag has "autowire" attribute and its default value is "no" . it means by default auto-wiring is
+                           disabled in xml based auto-wiring.
+
+2. byName :-  In this strategy , if a bean id attribute value in applicationContext.xml file matches with the variable/property
+                        name of a dependent bean, then spring container implicitly performs the setter injection into the dependent
+                        bean , it is known as auto-wire byName
+                        If the dependency is unmatched , container does not inject that dependency . its means property remains
+                        with null value,
+	      Example:
+	     <bean id="demo" class="com.masai.Demo" autowire="byName" />
+
+3. byType :- In this strategy spring container will search for a bean class in spring configuration file, that matched with the property type.
+                      If matched then spring container injects that dependency obj by calling the setter method of dependent class.
+                      If unmatched then that property will remain with null value.
+                     Note:- if more than one bean of same type is encountered in spring configuration file ,then container
+                     will throw "UnsatifyDependencyException"
+	  example :-
+	  <bean id="demo" class="com.masai.Demo" autowire="byType" />
+
+4. constructor :- In this strategy , spring container uses constructor injection instead of setter injection.
+                            dependency resolution is done by using max number of argument constructor, if constructors are overloaded.
+                            Note:- it first uses byName and if not found then it uses byType , and in case byType is matched with
+                           more that 1 then ambiguity exception will occur.
+                           And if not matched ,here variable will not remain null, it will throw "UnsaticfiedDependencyException"
+                           This kind of auto-wiring is least preferred because of constructor ambiguity and circular dependency.
+		example :-
+		<bean id="d1" class="com.masai.Demo" autowire="constructor" />
